@@ -12,7 +12,32 @@
     <title>Person-Detection-and-Face-Mask-Detection</title>
   </head>
   <body>
-    <h1>Person-Detection-and-Face-Mask-Detection</h1>
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Objective</a></li>
+
+          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" spellcheck="false" data-ms-editor="true">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -25,17 +50,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 
-<div class ="container">
+<div class ="container px-4">
+<div class="row px-4 ms-1 px-2">
+<div class="col px-4 ms-1 px-2">
+<h1>Person-Detection-and-Face-Mask-Detection</h1>
+</div>
 
-<div class="col-xl-2 col-lg-2 col-md-4 col-6">
+<div class="row px-4 ms-1 px-2">
+<div class="col-xl-2 col-lg-2 col-md-4 col-6 px-4 ms-1 px-2">
+
 <form action="up.php" method="post" enctype="multipart/form-data">
 Select image to upload:
+<div class="row px-4 ms-1 px-2">
+<div class="col px-4 ms-1 px-2">
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submit">
 </form>
 <!-- <img src="curr.jpg"> -->
 </div>
+</div>
+</div>
 
+<div class="row px-4 ms-1 px-2">
+<div class="col px-4 ms-1 px-2">
 <?php
 $menu = "";
 $imgName = "curr.jpg";
@@ -80,7 +117,12 @@ if ($err) {
     foreach($arr as $x => $val) {
         if( $x == "human_img")
             //echo "$x : $val<br>";
-            echo '<img src="' . $val . '" alt="T Person" >';
+            echo '
+            <div class="row px-4 ms-1 px-2">
+            <div class="col px-4 ms-1 px-2">
+            <img src="' . $val . '" alt="T Person" class="rounded float-start ">
+            </div>
+            </div>';
     }
 }
 echo"<br>\n";
@@ -97,7 +139,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,  
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('img.jpg')),
+  CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('' . $imgName . '')),
   CURLOPT_HTTPHEADER => array(
     'Content-Type: multipart/form-data',
     'Apikey:vOL3nalJfnnMF2BaNIl7a9wxOebOaNd9 '
