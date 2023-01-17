@@ -28,7 +28,7 @@
 <div class ="container overflow-hidden">
 <div class="row px-4 ms-1 px-2 g-2 g-lg-3 bg-dark text-white">
 <div class="col px-4 ms-1 px-2 p-3">
-<p class = h1>Person-Detection-and-Face-Mask-Detection</p>
+<p class = h1 text-center>Person-Detection-and-Face-Mask-Detection</p>
 </div>
 </div>
 
