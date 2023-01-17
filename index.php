@@ -12,24 +12,6 @@
     <title>Person-Detection-and-Face-Mask-Detection</title>
   </head>
   <body>
-  <header class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Objective</a></li>
-
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        </ul>
-
-      </div>
-    </div>
-  </header>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -42,29 +24,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 
-<div class ="container px-4">
-<div class="row px-4 ms-1 px-2">
-<div class="col px-4 ms-1 px-2">
-<h1>Person-Detection-and-Face-Mask-Detection</h1>
+
+<div class ="container overflow-hidden">
+<div class="row px-4 ms-1 px-2 g-2 g-lg-3 bg-dark text-white">
+<div class="col px-4 ms-1 px-2 p-3">
+<p class = h1>Person-Detection-and-Face-Mask-Detection</p>
+</div>
 </div>
 
-<div class="row px-4 ms-1 px-2">
-<div class="col-xl-2 col-lg-2 col-md-4 col-6 px-4 ms-1 px-2">
+
+<div class="row px-4 ms-1 px-2 g-2 g-lg-3 bg-light">
+<div class="col-md-auto p-3">
 
 <form action="up.php" method="post" enctype="multipart/form-data">
-Select image to upload:
-<div class="row px-4 ms-1 px-2">
-<div class="col px-4 ms-1 px-2">
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
+  <div class = "mb-3">
+  <label for="formFile" class="form-label">กรุณาเลือกภาพเพื่อใช้งาน</label>
+  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control ">
+  <br>
+  <input type="submit" value="อัปโหลด" name="submit" class="btn btn-danger">
 </form>
-<!-- <img src="curr.jpg"> -->
 </div>
 </div>
 </div>
 
-<div class="row px-4 ms-1 px-2">
-<div class="col px-4 ms-1 px-2">
+<div class="row px-4 ms-1 px-2 g-2 g-lg-3 bg-light">
+<div class="col-md-auto p-3">
 <?php
 $menu = "";
 $imgName = "curr.jpg";
@@ -100,7 +84,7 @@ $response = curl_exec($curl);
 $err = curl_error($curl);
  
 curl_close($curl);
- 
+echo'<p class = "h1">ผลลัพท์การตรวจจับบุคคล</p>';
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
@@ -110,15 +94,17 @@ if ($err) {
         if( $x == "human_img")
             //echo "$x : $val<br>";
             echo '
-            <div class="row px-4 ms-1 px-2">
-            <div class="col px-4 ms-1 px-2">
-            <img src="' . $val . '" alt="T Person" class="rounded float-start ">
-            </div>
-            </div>';
+            <img src="' . $val . '" alt="T Person" class ="img-fluid max-width:20px">
+            ';
     }
 }
+echo'</div>';
+echo'</div>';
+
+echo '<div class="row px-4 ms-1 px-2 g-2 g-lg-3 bg-light">';
+echo '<div class="col-md-auto p-3">';
 echo"<br>\n";
-echo'mask detect code';
+echo'<p class = "h1">ผลลัพท์การตรวจจับ MASK</p>';
 echo"<br>\n";
 
 $curl = curl_init();
@@ -148,6 +134,8 @@ if ($err) {
 } else {
   echo $response;
 }
+echo'</div>';
+echo'</div>';
 ?>
 </div>
 </body>
